@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine for ASHISH 💖</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    height:100vh;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    color:white;
+}
+
+.container{
+    width:90%;
+    max-width:650px;
+    text-align:center;
+}
+
+h1{
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+#tagline{
+    font-size:20px;
+    margin-bottom:25px;
+    min-height:60px;
+    transition:0.3s ease;
+}
+
+/* Movement Area */
+.move-area{
+    position:relative;
+    width:100%;
+    height:200px;
+}
+
+/* Buttons */
+button{
+    padding:15px 35px;
+    font-size:20px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    font-weight:bold;
+    position:absolute;
+    transition:0.2s;
+}
+
+/* YES */
+#yes{
+    background:linear-gradient(45deg,#ff004c,#ff4d6d);
+    color:white;
+    left:20%;
+    top:80px;
+}
+
+/* NO */
+#no{
+    background:#333;
+    color:white;
+    left:60%;
+    top:80px;
+}
+
+/* Celebration */
+#celebration{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:radial-gradient(circle,#ff004c,#99002e);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    animation:zoomIn 0.6s ease-out;
+}
+
+#celebration h2{
+    font-size:40px;
+}
+
+@keyframes zoomIn{
+    from{transform:scale(0.5);opacity:0;}
+    to{transform:scale(1);opacity:1;}
+}
+
+/* Hearts */
+.heart{
+    position:fixed;
+    font-size:25px;
+    animation:floatUp 4s linear forwards;
+}
+
+@keyframes floatUp{
+    0%{transform:translateY(0);opacity:1;}
+    100%{transform:translateY(-100vh);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>TWINKLE,<br>Will You Be My Valentine? 💖</h1>
+
+    <div id="tagline">BAS NA MAT KRNA 😏</div>
+
+    <div class="move-area" id="moveArea">
+        <button id="yes">YES 💕</button>
+        <button id="no">NO 😢</button>
+    </div>
+</div>
+
+<div id="celebration">
+    <h2>SHE SAID YES!Love story officially start ho gayi 💖📖 ❤️🥰</h2>
+
+    <p>Forever starts now 💍💖</p>
+</div>
+
+<script>
+
+const taglines = [
+"Itna pyaar patiently de raha hu… ab to maan jao na ❤️",
+"Tere bina sab blank lagta hai… ab to maan jao na 😔",
+"Main itna bhi bura nahi hu… ab to maan jao na 😅",
+"Tere liye time always free rehta hai… ab to maan jao na ⏰",
+"Har baat pe tujhe hi choose karta hu… ab to maan jao na 💖",
+"Teri ek smile pe sab maaf kar deta hu… ab to maan jao na 😊",
+"Main serious bhi hu aur cute bhi… ab to maan jao na 😉",
+"Itna wait koi movie ka bhi nahi karta… ab to maan jao na 🎬",
+"Tere bina jokes bhi sad lagte hain… ab to maan jao na 😂",
+"Dil already tere naam pe register hai… ab to maan jao na 💘",
+"Tujhe khush dekhna hi meri habit hai… ab to maan jao na 😌",
+"Main har din try karta hu impress karne ka… ab to maan jao na 😄",
+"Tere nakhre tolerate karne ka award milna chahiye… ab to maan jao na 🏆",
+"Itni care free me mil rahi hai… ab to maan jao na 🤍",
+"Main tujhe lose nahi karna chahta… ab to maan jao na 🥺",
+"Tere bina future imagine hi nahi hota… ab to maan jao na 💫",
+"Teri aadat si ho gayi hai… ab to maan jao na 😇",
+"Har dua me tera naam aata hai… ab to maan jao na 🙏",
+"Main sirf tera hi rehna chahta hu… ab to maan jao na ❤️",
+"Tere bina sab kuch useless lagta hai… ab to maan jao na 😶",
+"Itna honest banda mil raha hai… ab to maan jao na 😌",
+"Main tere liye change bhi ho sakta hu… ab to maan jao na 🔄",
+"Teri khushi meri priority hai… ab to maan jao na 👑",
+"Main wait kar lunga par haar nahi manunga… ab to maan jao na 💪",
+"Tujhe special feel karana aata hai mujhe… ab to maan jao na 💝",
+"Tere saath simple life bhi perfect hai… ab to maan jao na 🌸",
+"Main overthink bhi sirf tere liye karta hu… ab to maan jao na 🤯",
+"Tere bina phone bhi boring lagta hai… ab to maan jao na 📱",
+"Main sirf timepass nahi hu… ab to maan jao na 😶‍🌫️",
+"Tere liye serious feelings hain… ab to maan jao na 💓",
+"Main tujhe respect bhi karta hu… ab to maan jao na 🙇",
+"Teri care karna achha lagta hai… ab to maan jao na 🤗",
+"Tere saath hi complete feel hota hu… ab to maan jao na 💞",
+"Main drama nahi, sach bol raha hu… ab to maan jao na 🎭",
+"Tujhe khone ka darr lagta hai… ab to maan jao na 😢",
+"Itna patience sirf tere liye hai… ab to maan jao na ⏳",
+"Teri har choti baat yaad rehti hai… ab to maan jao na 🧠",
+"Main effort karta hu daily… ab to maan jao na 🛠️",
+"Tujhe respect + pyaar combo deta hu… ab to maan jao na 💗",
+"Tere bina smile half reh jati hai… ab to maan jao na 🙂",
+"Main tere saath honest future chahta hu… ab to maan jao na 🏡",
+"Tujhe rulana nahi, hasana chahta hu… ab to maan jao na 😄",
+"Main tere side hamesha rahunga… ab to maan jao na 🤝",
+"Tujhe samajhne ki full koshish karta hu… ab to maan jao na 🫶",
+"Teri importance sabse zyada hai… ab to maan jao na 👸",
+"Main sirf words nahi, feelings hu… ab to maan jao na 💬",
+"Tujhe safe feel karana chahta hu… ab to maan jao na 🛡️",
+"Main long term wala banda hu… ab to maan jao na ⌛",
+"Tere saath hi happy ending chahiye… ab to maan jao na 📖",
+"Bas ek baar haan bol de… ab to maan jao na ❤️"
+];
+
+let index = 0;
+
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const tagline = document.getElementById("tagline");
+const moveArea = document.getElementById("moveArea");
+const celebration = document.getElementById("celebration");
+
+/* NO HOVER MOVE */
+function moveButton(){
+
+    tagline.innerText = taglines[index];
+    index = (index + 1) % taglines.length;
+
+    const areaWidth = moveArea.clientWidth - noBtn.offsetWidth;
+    const areaHeight = moveArea.clientHeight - noBtn.offsetHeight;
+
+    const x = Math.random() * areaWidth;
+    const y = Math.random() * areaHeight;
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+noBtn.addEventListener("mouseover", moveButton);
+
+/* Mobile */
+noBtn.addEventListener("touchstart", function(e){
+    e.preventDefault();
+    moveButton();
+});
+
+/* YES CLICK */
+yesBtn.addEventListener("click", function(){
+    celebration.style.display="flex";
+    createHearts();
+});
+
+/* Hearts */
+function createHearts(){
+    for(let i=0;i<70;i++){
+        let heart=document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML="❤️";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.top=Math.random()*100+"vh";
+        heart.style.fontSize=(Math.random()*30+20)+"px";
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{ heart.remove(); },4000);
+    }
+}
+
+</script>
+
+</body>
+</html>
